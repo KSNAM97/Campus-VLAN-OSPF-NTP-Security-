@@ -1,0 +1,22 @@
+! =====================================================================
+! EX8) IP Fragment DoS 방어 (R1)
+!  - R1에 연결된 Server(100.10.1.1)에 대한 IP Fragment 기반 DoS 차단
+!  - 정상 트래픽(non-fragment)은 영향 없음
+! =====================================================================
+
+! ========================= R1 =========================
+en
+conf t
+!
+ip access-list extended ANTI_FRAG
+ deny ip any host 100.10.1.1 fragments
+ permit ip any any
+!
+exit
+!
+int gi1/0
+ ip access-group ANTI_FRAG in
+!
+end
+wr
+!
