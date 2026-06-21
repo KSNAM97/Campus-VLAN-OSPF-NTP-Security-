@@ -7,9 +7,6 @@
 
 ! ===== EX7-1) R2 (NTP Master) =====
 en
-!
-clock set 20:55:00 16 jun 2026
-!
 conf t
 !
 clock timezone KST 9
@@ -21,8 +18,12 @@ ntp trusted-key 1
 ntp master 2
 !
 end
+!
+clock set 20:55:00 16 jun 2026
+!
 wr
 !
+
 
 ! ===== EX7-2) R1 (NTP Client) =====
 en
