@@ -5,7 +5,6 @@
 show clock
 show ntp status
 show ntp associations
-show ntp authentication-status
 show running-config | include ntp
 ```
 
